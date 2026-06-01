@@ -87,9 +87,12 @@ Follow these rules strictly:
 14. This chat is private; only the user can see it.
 `
 
+import { useTranslation } from 'react-i18next'
+
 export default function AIChatModal({ isOpen, onClose }) {
+  const { t } = useTranslation()
   const [messages, setMessages] = useState([
-    { role: 'ai', content: "Hi! I'm Niraj's AI assistant. Feel free to ask me anything about his experience, projects, or availability!" }
+    { role: 'ai', content: t('chat.initialMessage') }
   ])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -154,7 +157,7 @@ export default function AIChatModal({ isOpen, onClose }) {
       const aiResponse = await callGemini(input)
       setMessages(prev => [...prev, { role: 'ai', content: aiResponse }])
     } catch (error) {
-      setMessages(prev => [...prev, { role: 'ai', content: "I'm having a little trouble connecting right now. Please try again or contact Niraj directly on LinkedIn!" }])
+      setMessages(prev => [...prev, { role: 'ai', content: t('chat.error') }])
     } finally {
       setIsLoading(false)
     }
@@ -179,8 +182,8 @@ export default function AIChatModal({ isOpen, onClose }) {
               <div className="chat-header-info">
                 <MessageSquare size={20} className="header-icon" />
                 <div>
-                  <h3>Ask AI about Niraj</h3>
-                  <span className="private-badge">Private Chat • Niraj cannot see this</span>
+                  <h3>{t('chat.header')}</h3>
+                  <span className="private-badge">{t('chat.badge')}</span>
                 </div>
               </div>
               <div className="modal-actions">
@@ -213,7 +216,7 @@ export default function AIChatModal({ isOpen, onClose }) {
               {isLoading && (
                 <div className="message ai">
                   <div className="avatar"><Loader2 size={16} className="animate-spin text-blue-500" /></div>
-                  <div className="message-content">Generating Response...</div>
+                  <div className="message-content">{t('chat.generating')}</div>
                 </div>
               )}
               <div ref={messagesEndRef} />
@@ -224,7 +227,7 @@ export default function AIChatModal({ isOpen, onClose }) {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask me anything about Niraj..."
+                placeholder={t('chat.placeholder')}
                 disabled={isLoading}
               />
               <button type="submit" disabled={isLoading || !input.trim()}>

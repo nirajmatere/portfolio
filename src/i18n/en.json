@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "education": "Education",
+    "contact": "Contact",
+    "askAI": "Ask AI"
+  },
+  "hero": {
+    "titlePrefix": "Building ",
+    "highlight": "Backend",
+    "titleSuffix": " Systems",
+    "subtitle": "Software Engineer with 2+ years of experience in end-to-end product development, AI-driven applications, and high-performance backend architectures.",
+    "askAI": "Ask AI about Niraj",
+    "viewResume": "View Resume"
+  },
+  "about": {
+    "title": "Professional Summary",
+    "summary": "Experienced in designing, building, deploying, and maintaining full-stack product features across frontend, backend, databases, and cloud environments. Proven ability to develop scalable Python services, RAG pipelines, and LLM-powered workflows, with a strong focus on product ownership and continuous improvement.",
+    "visaBadge": "Based in Japan | Valid VISA till 2029"
+  },
+  "experience": {
+    "title": "Experience",
+    "company": {
+      "smsDatatech": "SMS DataTech"
+    },
+    "roles": {
+      "softwareEngineer": "Software Engineer",
+      "intern": "Software Engineering Intern"
+    },
+    "locations": {
+      "tokyo": "Tokyo, Japan"
+    },
+    "points": {
+      "architected": "Architected a Distributed Monitoring Pipeline: Re-engineered a single server monitoring system into a horizontally scalable architecture.",
+      "dynamicLoad": "Dynamic Load Management: Implemented task queuing to estimate compute load, automatically launching servers to process 4,000 URLs in under 30 minutes, a 13x increase in throughput.",
+      "customScheduling": "Custom Scheduling Engine: Developed a granular scheduling feature for automated data ingestion.",
+      "tokenBilling": "Token-Based Billing Integration: Transitioned the platform to a pay-per-use model.",
+      "automatedAlerting": "Automated Alerting System: Built a notification engine for user lifecycle events and pipeline failures.",
+      "summarization": "Intelligent Summarization: Integrated LLMs to automatically summarize scraped web content.",
+      "semanticFiltering": "Semantic Data Filtering: Developed an AI-powered search filter using natural language prompts.",
+      "optimizedBackend": "Optimized backend processing, reducing monitoring time for 100 URLs from 1 hour to 18 minutes.",
+      "improvedPreview": "Improved website preview functionality, reducing load time from 50s to under 10s.",
+      "competitorDiscovery": "Developed an NLP-based competitor discovery system with cosine similarity ranking.",
+      "ledTeam": "Led a small development team through design and delivery of an intelligence system."
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "featured": "Featured Project",
+    "items": {
+      "proExamAI": {
+        "title": "ProExamAI - AI Powered Test Platform",
+        "description": "Designed, developed, and maintained an end-to-end mock test platform with AI-generated hints, analysis, and realistic simulations."
+      },
+      "cricMarshall2": {
+        "title": "CricMarshall 2",
+        "description": "Built a retrieval-augmented generation system in Python using FAISS for context-aware cricket analytics integrated with Gemini and OpenAI APIs."
+      },
+      "recommendation": {
+        "title": "Cross-Domain Recommendation System",
+        "description": "Implemented a user-layered recommendation engine for books and movies across domains using cosine similarity and processed large datasets with pandas/numpy."
+      },
+      "cricMarshall1": {
+        "title": "CricMarshall",
+        "description": "Developed a voice-based assistant for cricket-related queries using NLP techniques such as NER and POS tagging."
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "categories": {
+      "programming": "Programming",
+      "backend": "Backend & APIs",
+      "ai": "AI Tech",
+      "engineering": "Engineering",
+      "tools": "Tools & Others",
+      "databases": "Databases & Cloud"
+    }
+  },
+  "education": {
+    "title": "Education",
+    "degree": "Bachelor of Technology – Computer Science and Engineering",
+    "college": "Indian Institute of Information Technology (IIIT), Nagpur, India",
+    "cgpa": "CGPA: 9.01"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "getInTouch": "Get in touch",
+    "subtitle": "I'm actively looking for new opportunities and can join immediately. Message me on LinkedIn for faster responses.",
+    "linkedinProfile": "LinkedIn Profile",
+    "githubProfile": "GitHub Profile",
+    "linkedinMsg": "Message me on LinkedIn",
+    "githubMsg": "Check my repositories"
+  },
+  "footer": {
+    "copyright": "© {{year}} NIRAJ VALU MATERE. Built with React & Vite."
+  },
+  "chat": {
+    "header": "Ask AI about Niraj",
+    "badge": "Private Chat • Niraj cannot see this",
+    "placeholder": "Ask me anything about Niraj...",
+    "error": "I'm having a little trouble connecting right now. Please try again or contact Niraj directly on LinkedIn!",
+    "generating": "Generating Response...",
+    "initialMessage": "Hi! I'm Niraj's AI assistant. Feel free to ask me anything about his experience, projects, or availability!",
+    "resumeTitle": "Niraj's Resume",
+    "copySuccess": "Resume link copied to clipboard!"
+  }
+}

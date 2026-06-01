@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "about": "自己紹介",
+    "experience": "経歴",
+    "projects": "プロジェクト",
+    "skills": "スキル",
+    "education": "学歴",
+    "contact": "お問い合わせ",
+    "askAI": "AIに質問"
+  },
+  "hero": {
+    "titlePrefix": "強力な",
+    "highlight": "バックエンド",
+    "titleSuffix": " システムの構築",
+    "subtitle": "エンド・ツー・エンドの製品開発、AI駆動アプリケーション、および高性能バックエンド・アーキテクチャにおいて2年以上の経験を持つソフトウェア・エンジニアです。",
+    "askAI": "ニラジについてAIに尋ねる",
+    "viewResume": "履歴書を表示"
+  },
+  "about": {
+    "title": "プロフェッショナルな概要",
+    "summary": "フロントエンド、バックエンド、データベース、クラウド環境にわたるフルスタック製品機能の設計、構築、展開、保守の経験があります。スケーラブルなPythonサービス、RAGパイプライン、LLMを活用したワークフローの開発において確かな実績があり、プロダクトオーナーシップと継続的な改善に重点を置いています。",
+    "visaBadge": "日本在住 | 2029年までの有効なビザ保有"
+  },
+  "experience": {
+    "title": "職務経歴",
+    "company": {
+      "smsDatatech": "株式会社エス・エム・エス・データテック"
+    },
+    "roles": {
+      "softwareEngineer": "ソフトウェア・エンジニア",
+      "intern": "ソフトウェア・エンジニア・インターン"
+    },
+    "locations": {
+      "tokyo": "東京、日本"
+    },
+    "points": {
+      "architected": "分散型監視パイプラインの設計：シングルサーバー監視システムを水平スケーラブルなアーキテクチャに再設計しました。",
+      "dynamicLoad": "動的な負荷管理：計算負荷を推定するためのタスクキューイングを実装し、30分以内に4,000のURLを処理するためのサーバーを自動起動し、スループットを13倍に向上させました。",
+      "customScheduling": "カスタムスケジューリングエンジン：自動データ収集のための詳細なスケジューリング機能を開発しました。",
+      "tokenBilling": "トークンベースの課金統合：プラットフォームを従量課金モデルに移行させました。",
+      "automatedAlerting": "自動アラートシステム：ユーザーのライフサイクルイベントやパイプラインの失敗に対する通知エンジンを構築しました。",
+      "summarization": "インテリジェントな要約：LLMを統合し、スクレイピングされたWebコンテンツを自動的に要約するようにしました。",
+      "semanticFiltering": "セマンティックデータフィルタリング：自然言語プロンプトを使用したAI搭載の検索フィルターを開発しました。",
+      "optimizedBackend": "バックエンド処理を最適化し、100のURLの監視時間を1時間から18分に短縮しました。",
+      "improvedPreview": "Webサイトのプレビュー機能を改善し、読み込み時間を50秒から10秒未満に短縮しました。",
+      "competitorDiscovery": "コサイン類似度ランキングを備えたNLPベースの競合発見システムを開発しました。",
+      "ledTeam": "インテリジェンスシステムの設計と提供を通じて、小規模な開発チームを率いました。"
+    }
+  },
+  "projects": {
+    "title": "プロジェクト",
+    "featured": "注目のプロジェクト",
+    "items": {
+      "proExamAI": {
+        "title": "ProExamAI - AI搭載テストプラットフォーム",
+        "description": "AIによるヒント生成、分析、リアリスティックなシミュレーションを備えたエンド・ツー・エンドの模擬試験プラットフォームの設計、開発、保守を行いました。"
+      },
+      "cricMarshall2": {
+        "title": "CricMarshall 2",
+        "description": "FAISSを使用して、GeminiおよびOpenAI APIと統合された文脈に応じたクリケット分析用の、Pythonでの検索拡張生成（RAG）システムを構築しました。"
+      },
+      "recommendation": {
+        "title": "クロスドメイン推薦システム",
+        "description": "コサイン類似度を使用してドメインを超えた本や映画のユーザー層別推薦エンジンを実装し、pandas/numpyで大規模なデータセットを処理しました。"
+      },
+      "cricMarshall1": {
+        "title": "CricMarshall",
+        "description": "NERやPOSタグ付けなどのNLP技術を使用して、クリケット関連の質問に対応する音声ベースのアシスタントを開発しました。"
+      }
+    }
+  },
+  "skills": {
+    "title": "スキル",
+    "categories": {
+      "programming": "プログラミング",
+      "backend": "バックエンド & API",
+      "ai": "AIテクノロジー",
+      "engineering": "エンジニアリング",
+      "tools": "ツール & その他",
+      "databases": "データベース & クラウド"
+    }
+  },
+  "education": {
+    "title": "学歴",
+    "degree": "工学士（情報工学）",
+    "college": "インド情報技術大学（IIIT）ナーグプル校（インド）",
+    "cgpa": "CGPA: 9.01"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "getInTouch": "ご連絡をお待ちしております",
+    "subtitle": "現在、新しい機会を積極的に探しており、即日入社可能です。迅速な対応のため、LinkedInでメッセージをお送りください。",
+    "linkedinProfile": "LinkedInプロフィール",
+    "githubProfile": "GitHubプロフィール",
+    "linkedinMsg": "LinkedInでメッセージを送る",
+    "githubMsg": "リポジトリを確認する"
+  },
+  "footer": {
+    "copyright": "© {{year}} NIRAJ VALU MATERE. React & Viteで構築されました。"
+  },
+  "chat": {
+    "header": "ニラジについてAIに尋ねる",
+    "badge": "プライベートチャット • ニラジはこの内容を見ることができません",
+    "placeholder": "ニラジについて何でも聞いてください...",
+    "error": "現在、接続に問題が発生しています。もう一度お試しいただくか、LinkedInで直接ニラジに連絡してください。",
+    "generating": "回答を生成中...",
+    "initialMessage": "こんにちは！ニラジのAIアシスタントです。彼の経験、プロジェクト、または空き状況について、お気軽に何でも聞いてください！",
+    "resumeTitle": "ニラジの履歴書",
+    "copySuccess": "履歴書のリンクをクリップボードにコピーしました！"
+  }
+}

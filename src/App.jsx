@@ -21,10 +21,30 @@ import {
   Database,
   Cpu
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import AIChatModal from './AIChatModal'
 import './App.css'
 
+function LanguageToggle() {
+  const { i18n } = useTranslation();
+  
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'en' ? 'jp' : 'en';
+    i18n.changeLanguage(newLang);
+  };
+
+  return (
+    <button onClick={toggleLanguage} className="theme-toggle lang-toggle" title="Switch Language">
+      <Globe size={20} />
+      <span style={{ fontSize: '12px', fontWeight: 'bold', marginLeft: '4px' }}>
+        {i18n.language === 'en' ? 'JP' : 'EN'}
+      </span>
+    </button>
+  );
+}
+
 function App() {
+  const { t, i18n } = useTranslation()
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAIChatOpen, setIsAIChatOpen] = useState(false)
@@ -43,76 +63,76 @@ function App() {
   }
 
   const sections = [
-    { id: 'hero', name: 'Home' },
-    { id: 'about', name: 'About' },
-    { id: 'experience', name: 'Experience' },
-    { id: 'projects', name: 'Projects' },
-    { id: 'skills', name: 'Skills' },
-    { id: 'education', name: 'Education' },
-    { id: 'contact', name: 'Contact' },
+    { id: 'hero', name: t('nav.home') },
+    { id: 'about', name: t('nav.about') },
+    { id: 'experience', name: t('nav.experience') },
+    { id: 'projects', name: t('nav.projects') },
+    { id: 'skills', name: t('nav.skills') },
+    { id: 'education', name: t('nav.education') },
+    { id: 'contact', name: t('nav.contact') },
   ]
 
   const experiences = [
     {
-      company: 'SMS DataTech',
-      role: 'Software Engineer',
+      company: t('experience.company.smsDatatech'),
+      role: t('experience.roles.softwareEngineer'),
       period: 'Oct. 2024 – Present',
-      location: 'Tokyo, Japan',
+      location: t('experience.locations.tokyo'),
       points: [
-        'Architected a Distributed Monitoring Pipeline: Re-engineered a single server monitoring system into a horizontally scalable architecture.',
-        'Dynamic Load Management: Implemented task queuing to estimate compute load, automatically launching servers to process 4,000 URLs in under 30 minutes, a 13x increase in throughput.',
-        'Custom Scheduling Engine: Developed a granular scheduling feature for automated data ingestion.',
-        'Token-Based Billing Integration: Transitioned the platform to a pay-per-use model.',
-        'Automated Alerting System: Built a notification engine for user lifecycle events and pipeline failures.',
-        'Intelligent Summarization: Integrated LLMs to automatically summarize scraped web content.',
-        'Semantic Data Filtering: Developed an AI-powered search filter using natural language prompts.'
+        t('experience.points.architected'),
+        t('experience.points.dynamicLoad'),
+        t('experience.points.customScheduling'),
+        t('experience.points.tokenBilling'),
+        t('experience.points.automatedAlerting'),
+        t('experience.points.summarization'),
+        t('experience.points.semanticFiltering')
       ]
     },
     {
-      company: 'SMS DataTech',
-      role: 'Software Engineering Intern',
+      company: t('experience.company.smsDatatech'),
+      role: t('experience.roles.intern'),
       period: 'July 2023 – June 2024',
-      location: 'Tokyo, Japan',
+      location: t('experience.locations.tokyo'),
       points: [
-        'Optimized backend processing, reducing monitoring time for 100 URLs from 1 hour to 18 minutes.',
-        'Improved website preview functionality, reducing load time from 50s to under 10s.',
-        'Developed an NLP-based competitor discovery system with cosine similarity ranking.',
-        'Led a small development team through design and delivery of an intelligence system.'
+        t('experience.points.optimizedBackend'),
+        t('experience.points.improvedPreview'),
+        t('experience.points.competitorDiscovery'),
+        t('experience.points.ledTeam')
       ]
     }
   ]
 
   const skills = [
-    { category: 'Programming', icon: <Code />, items: ['Python', 'PHP', 'C++', 'SQL', 'HTML', 'CSS'] },
-    { category: 'Backend & APIs', icon: <Globe />, items: ['FastAPI', 'Asyncio', 'Aiohttp', 'REST APIs', 'React.js', 'Full-Stack Feature Development'] },
-    { category: 'AI Tech', icon: <Database />, items: ['RAG Pipelines', 'LLM APIs (Gemini, OpenAI)', 'NLP', 'Pandas', 'NumPy'] },
-    { category: 'Engineering', icon: <Cpu />, items: ['System Design', 'API Design', 'Asynchronous Processing', 'Caching', 'Rate Limiting', 'Authentication', 'Authorization', 'Performance Optimization'] },
-    { category: 'Tools & Others', icon: <Share2 />, items: ['Git', 'Selenium', 'linux', 'BeautifulSoup', 'Software Engineering Lifecycle', 'Agile'] },
-    { category: 'Databases & Cloud', icon: <Database />, items: ['MySQL', 'PostgreSQL', 'Database Design', 'AWS', 'Deployment', 'NoSQL'] }
+    { category: t('skills.categories.programming'), icon: <Code />, items: ['Python', 'PHP', 'C++', 'SQL', 'HTML', 'CSS'] },
+    { category: t('skills.categories.backend'), icon: <Globe />, items: ['FastAPI', 'Asyncio', 'Aiohttp', 'REST APIs', 'React.js', 'Full-Stack Feature Development'] },
+    { category: t('skills.categories.ai'), icon: <Database />, items: ['RAG Pipelines', 'LLM APIs (Gemini, OpenAI)', 'NLP', 'Pandas', 'NumPy'] },
+    { category: t('skills.categories.engineering'), icon: <Cpu />, items: ['System Design', 'API Design', 'Asynchronous Processing', 'Caching', 'Rate Limiting', 'Authentication', 'Authorization', 'Performance Optimization'] },
+    { category: t('skills.categories.tools'), icon: <Share2 />, items: ['Git', 'Selenium', 'linux', 'BeautifulSoup', 'Software Engineering Lifecycle', 'Agile'] },
+    { category: t('skills.categories.databases'), icon: <Database />, items: ['MySQL', 'PostgreSQL', 'Database Design', 'AWS', 'Deployment', 'NoSQL'] }
   ]
 
   const projects = [
     {
-      title: 'ProExamAI - AI Powered Test Platform',
-      description: 'Designed, developed, and maintained an end-to-end mock test platform with AI-generated hints, analysis, and realistic simulations.',
+      title: t('projects.items.proExamAI.title'),
+      description: t('projects.items.proExamAI.description'),
       tags: ['React.js', 'Python', 'FastAPI', 'AI/LLM'],
       link: ['https://proexamai.com/']
     },
     {
-      title: 'CricMarshall 2',
-      description: 'Built a retrieval-augmented generation system in Python using FAISS for context-aware cricket analytics integrated with Gemini and OpenAI APIs.',
+      title: t('projects.items.cricMarshall2.title'),
+      description: t('projects.items.cricMarshall2.description'),
       tags: ['Python', 'FAISS', 'Gemini', 'OpenAI', 'RAG'],
       github: 'https://github.com/nirajmatere/CricMarshall_2/'
     },
     {
-      title: 'Cross-Domain Recommendation System',
-      description: 'Implemented a user-layered recommendation engine for books and movies across domains using cosine similarity and processed large datasets with pandas/numpy.',
+      title: t('projects.items.recommendation.title'),
+      description: t('projects.items.recommendation.description'),
       tags: ['Python', 'Pandas', 'Numpy', 'Recommendation Engine', 'Cosine Similarity'],
       github: 'https://github.com/nirajmatere/Cross-Domain-Recommendation-system-Movies-and-Books'
     },
     {
-      title: 'CricMarshall',
-      description: 'Developed a voice-based assistant for cricket-related queries using NLP techniques such as NER and POS tagging.',
+      title: t('projects.items.cricMarshall1.title'),
+      description: t('projects.items.cricMarshall1.description'),
       tags: ['Python', 'NLP', 'NER', 'POS Tagging', 'Voice Assistant'],
       github: 'https://github.com/nirajmatere/CricMarshall'
     }
@@ -144,14 +164,16 @@ function App() {
               <a key={s.id} href={`#${s.id}`}>{s.name}</a>
             ))}
             <button onClick={() => setIsAIChatOpen(true)} className="nav-ai-btn">
-              <MessageSquare size={16} /> Ask AI
+              <MessageSquare size={16} /> {t('nav.askAI')}
             </button>
+            <LanguageToggle />
             <button onClick={toggleTheme} className="theme-toggle">
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </button>
           </div>
 
           <div className="mobile-controls">
+            <LanguageToggle />
             <button onClick={toggleTheme} className="theme-toggle">
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </button>
@@ -182,7 +204,7 @@ function App() {
               }} 
               className="nav-ai-btn mobile"
             >
-              <MessageSquare size={18} /> Ask AI about Niraj
+              <MessageSquare size={18} /> {t('nav.askAI')}
             </button>
           </motion.div>
         )}
@@ -198,11 +220,10 @@ function App() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="hero-title">
-                Building <span className="highlight">Backend</span> Systems
+                {t('hero.titlePrefix')}<span className="highlight">{t('hero.highlight')}</span>{t('hero.titleSuffix')}
               </h1>
               <p className="hero-subtitle">
-                Software Engineer with 2+ years of experience in end-to-end product development,
-                AI-driven applications, and high-performance backend architectures.
+                {t('hero.subtitle')}
               </p>
               <div className="hero-info">
                 <div className="info-item"><MapPin size={18} /> {contactInfo.location}</div>
@@ -210,10 +231,10 @@ function App() {
               </div>
               <div className="hero-cta">
                 <button onClick={() => setIsAIChatOpen(true)} className="btn btn-primary">
-                  <MessageSquare size={18} style={{ marginRight: '8px' }} /> Ask AI about Niraj
+                  <MessageSquare size={18} style={{ marginRight: '8px' }} /> {t('hero.askAI')}
                 </button>
                 <button onClick={() => setIsResumeOpen(true)} className="btn btn-outline">
-                  <Download size={18} style={{ marginRight: '8px' }} /> View Resume
+                  <Download size={18} style={{ marginRight: '8px' }} /> {t('hero.viewResume')}
                 </button>
               </div>
               <div className="social-links-named">
@@ -227,15 +248,12 @@ function App() {
         {/* About Section */}
         <section id="about" className="about-section">
           <div className="container">
-            <h2>Professional Summary</h2>
+            <h2>{t('about.title')}</h2>
             <p className="summary-text">
-              Experienced in designing, building, deploying, and maintaining full-stack product features
-              across frontend, backend, databases, and cloud environments. Proven ability to develop
-              scalable Python services, RAG pipelines, and LLM-powered workflows, with a strong focus
-              on product ownership and continuous improvement.
+              {t('about.summary')}
             </p>
             <div className="visa-badge">
-              <MapPin size={16} /> Based in Japan | Valid VISA till 2029
+              <MapPin size={16} /> {t('about.visaBadge')}
             </div>
           </div>
         </section>
@@ -243,7 +261,7 @@ function App() {
         {/* Experience Section */}
         <section id="experience" className="experience-section">
           <div className="container">
-            <h2>Experience</h2>
+            <h2>{t('experience.title')}</h2>
             <div className="timeline">
               {experiences.map((exp, index) => (
                 <motion.div
@@ -272,7 +290,7 @@ function App() {
         {/* Projects Section */}
         <section id="projects" className="projects-section">
           <div className="container">
-            <h2>Projects</h2>
+            <h2>{t('projects.title')}</h2>
             <div className="project-grid">
               {projects.map((project, index) => (
                 <motion.div
@@ -280,7 +298,7 @@ function App() {
                   whileHover={{ y: -10 }}
                   className="project-card"
                 >
-                  {index === 0 && <div className="project-badge">Featured Project</div>}
+                  {index === 0 && <div className="project-badge">{t('projects.featured')}</div>}
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
                   <div className="project-tags">
@@ -307,7 +325,7 @@ function App() {
         {/* Skills Section */}
         <section id="skills" className="skills-section">
           <div className="container">
-            <h2>Skills</h2>
+            <h2>{t('skills.title')}</h2>
             <div className="skills-grid">
               {skills.map((skill, index) => (
                 <motion.div
@@ -331,12 +349,12 @@ function App() {
         {/* Education Section */}
         <section id="education" className="education-section">
           <div className="container">
-            <h2>Education</h2>
+            <h2>{t('education.title')}</h2>
             <div className="education-card">
-              <h3>Bachelor of Technology – Computer Science and Engineering</h3>
-              <p>Indian Institute of Information Technology (IIIT), Nagpur, India</p>
+              <h3>{t('education.degree')}</h3>
+              <p>{t('education.college')}</p>
               <div className="edu-meta">
-                <span>CGPA: 9.01</span>
+                <span>{t('education.cgpa')}</span>
               </div>
             </div>
           </div>
@@ -345,11 +363,11 @@ function App() {
         {/* Contact Section */}
         <section id="contact" className="contact-section">
           <div className="container">
-            <h2>Contact Me</h2>
+            <h2>{t('contact.title')}</h2>
             <div className="contact-layout">
               <div className="contact-info">
-                <h3>Get in touch</h3>
-                <p>I'm actively looking for new opportunities and can join immediately. Message me on LinkedIn for faster responses.</p>
+                <h3>{t('contact.getInTouch')}</h3>
+                <p>{t('contact.subtitle')}</p>
                 <div className="info-list">
                   {contactInfo.emails.map(email => (
                     <div key={email} className="info-item"><Mail /> {email}</div>
@@ -363,13 +381,13 @@ function App() {
               <div className="contact-social-big">
                 <a href={contactInfo.linkedin} target="_blank" rel="noreferrer" className="contact-social-card">
                   <User size={32} />
-                  <span>LinkedIn Profile</span>
-                  <p>Message me on LinkedIn</p>
+                  <span>{t('contact.linkedinProfile')}</span>
+                  <p>{t('contact.linkedinMsg')}</p>
                 </a>
                 <a href={contactInfo.github} target="_blank" rel="noreferrer" className="contact-social-card">
                   <Globe size={32} />
-                  <span>GitHub Profile</span>
-                  <p>Check my repositories</p>
+                  <span>{t('contact.githubProfile')}</span>
+                  <p>{t('contact.githubMsg')}</p>
                 </a>
               </div>
             </div>
@@ -379,7 +397,7 @@ function App() {
 
       <footer className="footer">
         <div className="container">
-          <p>© {new Date().getFullYear()} NIRAJ VALU MATERE. Built with React & Vite.</p>
+          <p>{t('footer.copyright', { year: new Date().getFullYear() })}</p>
         </div>
       </footer>
 
@@ -401,7 +419,7 @@ function App() {
               className="resume-modal"
             >
               <div className="modal-header">
-                <h3>Niraj's Resume</h3>
+                <h3>{t('chat.resumeTitle')}</h3>
                 <div className="modal-actions">
                   <button onClick={copyResumeLink} className="btn-icon" title="Copy Link">
                     <Share2 size={20} />

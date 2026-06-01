@@ -79,6 +79,19 @@
   color: var(--primary);
 }
 
+.lang-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  transition: all 0.2s ease;
+}
+
+.lang-toggle:hover {
+  border-color: var(--primary);
+  background: var(--card-bg);
+}
+
 .mobile-controls {
   display: none;
   gap: 1rem;
