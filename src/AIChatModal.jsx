@@ -36,8 +36,9 @@ Skills:
 - Frameworks/APIs: FastAPI, Asyncio, Aiohttp, REST APIs, React.js
 - System Design: API design, Distributed Monitoring Pipeline, Dynamic Load Management, Custom Scheduling Engine, Token-Based Billing Integration, Asynchronous Processing, Caching, Rate Limiting, Authentication & Authorization, Performance Optimization.
 - AI & Data: RAG pipelines, FAISS, LLM APIs (Gemini, OpenAI), NLP, Cosine Similarity, Text Summarization, NER, POS Tagging.
-- Tools: Git, Selenium, BeautifulSoup, Pandas, NumPy.
+- Tools: Git, Selenium, BeautifulSoup, Pandas, NumPy, Docker.
 - Core Competencies: Software Engineering Fundamentals, Analytical Skills.
+- Databases & Cloud: MySQL, PostgreSQL, Vector DB, AWS, Deployment, Product Operations and Maintenance.
 
 Experience:
 - SMS DataTech (Software Engineer | Tokyo, Japan | Oct 2024 - Present):
@@ -55,10 +56,11 @@ Education:
 - B.Tech in Computer Science and Engineering, IIIT Nagpur (CGPA: 9.01).
 
 Personal Projects:
-- ProExamAI: End-to-end AI Powered Test Platform.
-- CricMarshall 2: RAG system for cricket analytics using FAISS, Gemini, and OpenAI.
-- Cross-Domain Recommendation System: Books and Movies recommendation engine.
-- CricMarshall: Voice-based cricket assistant using NLP.
+- ProExamAI: End-to-end AI Powered Test Platform | https://proexamai.com/
+- CricMarshall 2: RAG system for cricket analytics using FAISS, Gemini, and OpenAI. | https://github.com/nirajmatere/CricMarshall_2/
+- Cross-Domain Recommendation System: Books and Movies recommendation engine. | https://github.com/nirajmatere/Cross-Domain-Recommendation-system-Movies-and-Books
+- CricMarshall: Voice-based cricket assistant using NLP. | https://github.com/nirajmatere/CricMarshall
+-Portfolio Website: Professional Portfolio Website | Full-Stack Development | https://portfolio-niraj-valu-matere.vercel.app/
 
 Other Info:
 - Currently based in Tokyo, Japan with a valid visa till 2029.
