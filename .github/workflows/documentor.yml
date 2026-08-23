@@ -62,6 +62,27 @@ jobs:
           plan = env_data.get('plan', 'free')
           llm_model_name = env_data.get('llm_model_name', '')
           llm_api_key = env_data.get('llm_api_key', '')
+          
+          openai_key = ''
+          gemini_key = ''
+          hf_key = ''
+          anthropic_key = ''
+          deepseek_key = ''
+          embed_model = ''
+          
+          if llm_model_name.startswith('gemini'):
+              gemini_key = llm_api_key
+              embed_model = 'gemini/embedding-001'
+          elif llm_model_name.startswith('gpt') or llm_model_name.startswith('openai'):
+              openai_key = llm_api_key
+              embed_model = 'text-embedding-3-small'
+          elif llm_model_name.startswith('anthropic') or llm_model_name.startswith('claude'):
+              anthropic_key = llm_api_key
+              embed_model = 'huggingface/sentence-transformers/all-MiniLM-L6-v2'
+          elif llm_model_name.startswith('deepseek'):
+              deepseek_key = llm_api_key
+              embed_model = 'huggingface/sentence-transformers/all-MiniLM-L6-v2'
+              
           print(f'::add-mask::{lic}')
           if llm_api_key:
               print(f'::add-mask::{llm_api_key}')
@@ -69,7 +90,12 @@ jobs:
               f.write(f'license={lic}\n')
               f.write(f'plan={plan}\n')
               f.write(f'llm_model_name={llm_model_name}\n')
-              f.write(f'llm_api_key={llm_api_key}\n')
+              f.write(f'openai_api_key={openai_key}\n')
+              f.write(f'gemini_api_key={gemini_key}\n')
+              f.write(f'anthropic_api_key={anthropic_key}\n')
+              f.write(f'deepseek_api_key={deepseek_key}\n')
+              f.write(f'hf_api_key={hf_key}\n')
+              f.write(f'embedding_model_name={embed_model}\n')
         shell: python
           
       - name: Install Documentor Pro
@@ -79,11 +105,14 @@ jobs:
         env:
           DOCUMENTOR_API_URL: https://dev.documentor-pro.com
           DOC_PRO_LICENSE: ${{ steps.auth.outputs.license }}
-          OPENAI_API_KEY: ${{ steps.auth.outputs.llm_api_key || secrets.OPENAI_API_KEY }}
-          GEMINI_API_KEY: ${{ steps.auth.outputs.llm_api_key || secrets.GEMINI_API_KEY }}
-          HUGGINGFACE_API_KEY: ${{ steps.auth.outputs.llm_api_key || secrets.HUGGINGFACE_API_KEY }}
+          OPENAI_API_KEY: ${{ steps.auth.outputs.openai_api_key || secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ steps.auth.outputs.gemini_api_key || secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ steps.auth.outputs.anthropic_api_key || secrets.ANTHROPIC_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ steps.auth.outputs.deepseek_api_key || secrets.DEEPSEEK_API_KEY }}
+          HUGGINGFACE_API_KEY: ${{ steps.auth.outputs.hf_api_key || secrets.HUGGINGFACE_API_KEY }}
           LITELLM_API_KEY: ${{ steps.auth.outputs.llm_api_key }}
           MODEL_NAME: ${{ steps.auth.outputs.llm_model_name }}
+          EMBEDDING_MODEL_NAME: ${{ steps.auth.outputs.embedding_model_name }}
         run: |
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]] || [[ ! -d "documentor_docs" ]]; then
             echo "Starting full Documentor generation..."
@@ -122,10 +151,13 @@ jobs:
         continue-on-error: true
         env:
           DOC_PRO_LICENSE: ${{ steps.auth.outputs.license }}
-          OPENAI_API_KEY: ${{ steps.auth.outputs.llm_api_key || secrets.OPENAI_API_KEY }}
-          GEMINI_API_KEY: ${{ steps.auth.outputs.llm_api_key || secrets.GEMINI_API_KEY }}
-          HUGGINGFACE_API_KEY: ${{ steps.auth.outputs.llm_api_key || secrets.HUGGINGFACE_API_KEY }}
+          OPENAI_API_KEY: ${{ steps.auth.outputs.openai_api_key || secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ steps.auth.outputs.gemini_api_key || secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ steps.auth.outputs.anthropic_api_key || secrets.ANTHROPIC_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ steps.auth.outputs.deepseek_api_key || secrets.DEEPSEEK_API_KEY }}
+          HUGGINGFACE_API_KEY: ${{ steps.auth.outputs.hf_api_key || secrets.HUGGINGFACE_API_KEY }}
           LITELLM_API_KEY: ${{ steps.auth.outputs.llm_api_key }}
           MODEL_NAME: ${{ steps.auth.outputs.llm_model_name }}
+          EMBEDDING_MODEL_NAME: ${{ steps.auth.outputs.embedding_model_name }}
         run: |
           documentor-pro sync . --api-url 'https://dev.documentor-pro.com' --correlation-id "${{ inputs.correlation_id }}"
