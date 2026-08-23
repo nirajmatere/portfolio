@@ -72,7 +72,7 @@ jobs:
           
           if llm_model_name.startswith('gemini'):
               gemini_key = llm_api_key
-              embed_model = 'gemini/embedding-001'
+              embed_model = 'gemini/gemini-embedding-2'
           elif llm_model_name.startswith('gpt') or llm_model_name.startswith('openai'):
               openai_key = llm_api_key
               embed_model = 'text-embedding-3-small'
